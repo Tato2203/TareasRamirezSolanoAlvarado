@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/usuario/Desktop/Vivado/Proyecto_prueba2/Proyecto_prueba2.runs/impl_1/ALU_suma.tcl"
+  variable script "C:/Users/usuario/Desktop/GIT/Proyecto_prueba2/Proyecto_prueba2.runs/impl_1/ALU_suma.tcl"
   variable category "vivado_impl"
 }
 
@@ -129,13 +129,13 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir C:/Users/usuario/Desktop/Vivado/Proyecto_prueba2/Proyecto_prueba2.cache/wt [current_project]
-  set_property parent.project_path C:/Users/usuario/Desktop/Vivado/Proyecto_prueba2/Proyecto_prueba2.xpr [current_project]
-  set_property ip_output_repo C:/Users/usuario/Desktop/Vivado/Proyecto_prueba2/Proyecto_prueba2.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/usuario/Desktop/GIT/Proyecto_prueba2/Proyecto_prueba2.cache/wt [current_project]
+  set_property parent.project_path C:/Users/usuario/Desktop/GIT/Proyecto_prueba2/Proyecto_prueba2.xpr [current_project]
+  set_property ip_output_repo C:/Users/usuario/Desktop/GIT/Proyecto_prueba2/Proyecto_prueba2.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet C:/Users/usuario/Desktop/Vivado/Proyecto_prueba2/Proyecto_prueba2.runs/synth_1/ALU_suma.dcp
+  add_files -quiet C:/Users/usuario/Desktop/GIT/Proyecto_prueba2/Proyecto_prueba2.runs/synth_1/ALU_suma.dcp
 OPTRACE "read constraints: implementation" START { }
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }

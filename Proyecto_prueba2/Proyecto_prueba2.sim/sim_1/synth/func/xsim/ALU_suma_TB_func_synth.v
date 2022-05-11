@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-// Date        : Tue May 10 23:37:40 2022
+// Date        : Wed May 11 09:15:16 2022
 // Host        : Tatos-Laptop running 64-bit major release  (build 9200)
 // Command     : write_verilog -mode funcsim -nolib -force -file
-//               C:/Users/usuario/Desktop/Vivado/Proyecto_prueba2/Proyecto_prueba2.sim/sim_1/synth/func/xsim/ALU_suma_TB_func_synth.v
+//               C:/Users/usuario/Desktop/GIT/Proyecto_prueba2/Proyecto_prueba2.sim/sim_1/synth/func/xsim/ALU_suma_TB_func_synth.v
 // Design      : ALU_suma
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.

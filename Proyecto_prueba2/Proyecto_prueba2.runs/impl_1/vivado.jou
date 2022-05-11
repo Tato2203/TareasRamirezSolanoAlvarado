@@ -2,12 +2,12 @@
 # Vivado v2022.1 (64-bit)
 # SW Build 3526262 on Mon Apr 18 15:48:16 MDT 2022
 # IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
-# Start of session at: Tue May 10 23:32:19 2022
-# Process ID: 17776
-# Current directory: C:/Users/usuario/Desktop/Vivado/Proyecto_prueba2/Proyecto_prueba2.runs/impl_1
+# Start of session at: Wed May 11 09:40:27 2022
+# Process ID: 108
+# Current directory: C:/Users/usuario/Desktop/GIT/Proyecto_prueba2/Proyecto_prueba2.runs/impl_1
 # Command line: vivado.exe -log ALU_suma.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source ALU_suma.tcl -notrace
-# Log file: C:/Users/usuario/Desktop/Vivado/Proyecto_prueba2/Proyecto_prueba2.runs/impl_1/ALU_suma.vdi
-# Journal file: C:/Users/usuario/Desktop/Vivado/Proyecto_prueba2/Proyecto_prueba2.runs/impl_1\vivado.jou
+# Log file: C:/Users/usuario/Desktop/GIT/Proyecto_prueba2/Proyecto_prueba2.runs/impl_1/ALU_suma.vdi
+# Journal file: C:/Users/usuario/Desktop/GIT/Proyecto_prueba2/Proyecto_prueba2.runs/impl_1\vivado.jou
 # Running On: Tatos-Laptop, OS: Windows, CPU Frequency: 2808 MHz, CPU Physical cores: 2, Host memory: 7961 MB
 #-----------------------------------------------------------
 source ALU_suma.tcl -notrace

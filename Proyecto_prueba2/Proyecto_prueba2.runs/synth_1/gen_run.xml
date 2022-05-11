@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-2L" LaunchTime="1652246792" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/Register.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-2L" LaunchTime="1652283493" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/Register.dcp">
   <File Type="PA-TCL" Name="ALU_suma.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="ALU_suma_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="ALU_suma_reports.tcl"/>
@@ -19,6 +19,14 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/Register.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Instruct_Mem.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -52,9 +60,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>
