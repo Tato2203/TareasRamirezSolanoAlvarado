@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 05/12/2022 04:58:01 PM
+// Create Date: 05/12/2022 05:20:56 PM
 // Design Name: 
-// Module Name: ExtendUnit_21to32
+// Module Name: ExtendeUnit_12to32
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,12 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-
-module ExtendUnit_21to32(
-    input [5:0] Extender,          // el valor debe ser 21 bits de y no de 5 bits
-    output [10:0] Extendido        // el valor debe ser de 32 bits y no de 10 bits
+module ExtendeUnit_12to32(
+    input [11:0] Extender,          // el valor debe ser 21 bits de y no de 5 bits
+    output [31:0] Extendido        // el valor debe ser de 32 bits y no de 10 bits
     );
     
-    assign Extendido = {{5{Extender[5]}},Extender};
-    
+    assign Extendido = {{20{Extender[11]}},Extender};
 endmodule

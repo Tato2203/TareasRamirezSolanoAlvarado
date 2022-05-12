@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 05/12/2022 04:58:01 PM
+// Create Date: 05/12/2022 04:58:33 PM
 // Design Name: 
-// Module Name: ExtendUnit_21to32
+// Module Name: ExtendUnit_21to32_TB
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,12 +20,24 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+module ExtendUnit_21to32_TB();
 
-module ExtendUnit_21to32(
-    input [5:0] Extender,          // el valor debe ser 21 bits de y no de 5 bits
-    output [10:0] Extendido        // el valor debe ser de 32 bits y no de 10 bits
-    );
-    
-    assign Extendido = {{5{Extender[5]}},Extender};
-    
+reg  [5:0] extender;
+wire   [10:0] extendido;
+
+ExtendUnit_21to32 uut (extender, extendido);
+
+initial
+begin
+  #100 
+   extender = 5'd0;
+
+   #100 
+   
+   extender = 6'b010101;
+   
+   #200 extender = 6'b100001;
+   
+end
+
 endmodule
