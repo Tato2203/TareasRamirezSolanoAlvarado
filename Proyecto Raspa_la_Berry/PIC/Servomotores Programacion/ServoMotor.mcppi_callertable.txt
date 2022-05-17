@@ -1,0 +1,5 @@
+main
+	gira
+		Mul_32x32_U
+		Div_32x32_U
+		VDelay_us

@@ -1,0 +1,40 @@
+#include <16f877a.h>
+#use DELAY(CLOCK=8M)
+#FUSES HS, NOWDT, NOLVP
+#define b0 servo
+int i;
+
+
+void main(){
+   while(true){
+   
+      for(i=0;i<=50;i++) {
+         output_high(servo);
+         delay_us(600);
+         output_low(pin_b0);
+         delay_us(19000);
+      }
+      
+       for(i=0;i<=50;i++) {
+         output_high(pin_b0);
+         delay_us(1600);
+         output_low(pin_b0);
+         delay_us(19000);
+      }
+      
+      for(i=0;i<=50;i++) {
+         output_high(pin_b0);
+         delay_us(2600);
+         output_low(pin_b0);
+         delay_us(19000);
+      }
+      
+       for(i=0;i<=50;i++) {
+         output_high(pin_b0);
+         delay_us(1600);
+         output_low(pin_b0);
+         delay_us(19000);
+      }
+   
+   }
+}

@@ -1,0 +1,84 @@
+[PROJECT]
+Target=Void take.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.059
+Compiler=PCM
+[Target Data]
+FileList=Void take.c
+[Void take.c]
+Type=4
+[mru-list]
+1=Void take.c
+
+[defines]
+buildcount=27
+
+[ProjectLog]
+Days=3
+D1=16-08-2018
+D1_L=2
+D1_L1=[75547]Stopped Editing.
+TotalEdit=17
+TotalDebug=0
+D1_E=12
+D1_D=0
+D1_L2=[81513]Project Closed.
+D2=17-08-2018
+D2_L=27
+D2_L1=[40966]Project Opened.
+D2_L2=[42128]Started Editing.
+D2_L3=[42455]Stopped Editing.
+D2_L4=[42548]Started Editing.
+D2_L5=[42861]Stopped Editing.
+D2_L6=[43189]Started Editing.
+D2_L7=[43489]Stopped Editing.
+D2_L8=[44585]Started Editing.
+D2_L9=[44886]Stopped Editing.
+D2_L10=[44886]Started Editing.
+D2_L11=[45187]Stopped Editing.
+D2_L12=[45233]Started Editing.
+D2_L13=[45535]Stopped Editing.
+D2_L14=[45537]Started Editing.
+D2_L15=[46224]Stopped Editing.
+D2_L16=[46298]Started Editing.
+D2_L17=[46834]Stopped Editing.
+D2_L18=[47690]Started Editing.
+D2_L19=[48124]Stopped Editing.
+D2_L20=[48639]Started Editing.
+D2_L21=[49083]Stopped Editing.
+D2_L22=[49278]Started Editing.
+D2_L23=[49733]Stopped Editing.
+D2_L24=[49862]Started Editing.
+D2_L25=[50164]Stopped Editing.
+D2_L26=[51946]Started Editing.
+D2_L27=[52610]Stopped Editing.
+D3=18-08-2018
+D3_L=16
+D3_L1=[47474]Started Editing.
+D3_L2=[47778]Stopped Editing.
+D3_L3=[48115]Started Editing.
+D3_L4=[48419]Stopped Editing.
+D3_L5=[48634]Started Editing.
+D3_L6=[49022]Stopped Editing.
+D3_L7=[49043]Started Editing.
+D3_L8=[49344]Stopped Editing.
+D3_L9=[49366]Started Editing.
+D3_L10=[49517]Project Closed.
+D3_L11=[54076]Project Opened.
+D3_L12=[54119]Started Editing.
+D3_L13=[54452]Stopped Editing.
+D3_L14=[54599]Started Editing.
+D3_L15=[54859]Stopped Editing.
+D3_E=5
+D3_D=0
+D3_L16=[54859]Project Closed.
+
+[Opened Files]
+1=Void take.c
+t1=73
+2=..\Prueba servo proyecto(home)\Prueba servo proyecto(home).c
+t2=1
+Count=1
+[Units]
+Count=1
+1=Void take (main)

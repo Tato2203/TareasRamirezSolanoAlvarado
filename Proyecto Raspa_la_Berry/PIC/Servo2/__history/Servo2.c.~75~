@@ -1,0 +1,25 @@
+#include <16f877a.h>
+#use DELAY(CLOCK=8M)
+#FUSES HS, NOWDT, NOLVP
+
+int i;
+void posicion(int grados){
+
+   i=0;   
+   while (i<=50){
+      output_high(pin_b0);
+      delay_us(((grados*20000)/180)+600);
+      output_low(pin_b0);
+      delay_us(19000);
+      i=i+1;
+   }
+}
+
+void main(){
+   while(true){
+   
+      posicion(90);
+      posicion(180);
+   
+   }
+}

@@ -1,0 +1,1838 @@
+CCS PCM C Compiler, Version 5.059, 5967               17-jul.-18 23:23
+
+               Filename:   C:\Users\¡¡¡VIVA EL BASKET!!!\Desktop\Progra\PIC\Control Brazo I Etapa\Control Brazo I Etapa.lst
+
+               ROM used:   1490 words (18%)
+                           Largest free fragment is 2048
+               RAM used:   7 (2%) at main() level
+                           8 (2%) worst case
+               Stack used: 1 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   029
+0003:  NOP
+.................... #INCLUDE<16F877A.h> 
+.................... //////////// Standard Header file for the PIC16F877A device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F877A 
+....................  
+.................... #list 
+....................  
+.................... #USE delay (CLOCK=8M) 
+0004:  MOVLW  21
+0005:  MOVWF  04
+0006:  BCF    03.7
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   017
+000A:  MOVLW  02
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  97
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  DECFSZ 00,F
+0016:  GOTO   00A
+0017:  RETURN
+0018:  MOVLW  08
+0019:  SUBWF  22,F
+001A:  BTFSS  03.0
+001B:  GOTO   028
+001C:  MOVLW  22
+001D:  MOVWF  04
+001E:  BCF    03.7
+001F:  BCF    03.0
+0020:  RRF    00,F
+0021:  MOVF   00,W
+0022:  BTFSC  03.2
+0023:  GOTO   028
+0024:  GOTO   026
+0025:  NOP
+0026:  DECFSZ 00,F
+0027:  GOTO   025
+0028:  RETURN
+.................... #FUSES HS, NOWDT, NOLVP 
+.................... #DEFINE g pin_b4 
+.................... #DEFINE m pin_b3 
+.................... #DEFINE c pin_b2 
+.................... #DEFINE h pin_b1 
+.................... #DEFINE b pin_b0 
+....................  
+.................... int i; 
+....................  
+.................... void main(){ 
+0029:  MOVF   03,W
+002A:  ANDLW  1F
+002B:  MOVWF  03
+002C:  BSF    03.5
+002D:  BSF    1F.0
+002E:  BSF    1F.1
+002F:  BSF    1F.2
+0030:  BCF    1F.3
+0031:  MOVLW  07
+0032:  MOVWF  1C
+0033:  BCF    03.7
+....................    while(true){ 
+....................       for(i=0;i<50;i++){   //Homeo el brazo 
+0034:  BCF    03.5
+0035:  CLRF   20
+0036:  MOVF   20,W
+0037:  SUBLW  31
+0038:  BTFSS  03.0
+0039:  GOTO   071
+....................          output_high(b); 
+003A:  BSF    03.5
+003B:  BCF    06.0
+003C:  BCF    03.5
+003D:  BSF    06.0
+....................          output_high(h); 
+003E:  BSF    03.5
+003F:  BCF    06.1
+0040:  BCF    03.5
+0041:  BSF    06.1
+....................          output_high(c); 
+0042:  BSF    03.5
+0043:  BCF    06.2
+0044:  BCF    03.5
+0045:  BSF    06.2
+....................          output_high(m); 
+0046:  BSF    03.5
+0047:  BCF    06.3
+0048:  BCF    03.5
+0049:  BSF    06.3
+....................          output_high(g); 
+004A:  BSF    03.5
+004B:  BCF    06.4
+004C:  BCF    03.5
+004D:  BSF    06.4
+....................          delay_us(1600); 
+004E:  MOVLW  01
+004F:  MOVWF  21
+0050:  CALL   004
+0051:  MOVLW  03
+0052:  MOVWF  21
+0053:  MOVLW  C6
+0054:  MOVWF  22
+0055:  CALL   018
+0056:  DECFSZ 21,F
+0057:  GOTO   053
+....................          output_low(b); 
+0058:  BSF    03.5
+0059:  BCF    06.0
+005A:  BCF    03.5
+005B:  BCF    06.0
+....................          output_low(h); 
+005C:  BSF    03.5
+005D:  BCF    06.1
+005E:  BCF    03.5
+005F:  BCF    06.1
+....................          output_low(c); 
+0060:  BSF    03.5
+0061:  BCF    06.2
+0062:  BCF    03.5
+0063:  BCF    06.2
+....................          output_low(m); 
+0064:  BSF    03.5
+0065:  BCF    06.3
+0066:  BCF    03.5
+0067:  BCF    06.3
+....................          output_low(g); 
+0068:  BSF    03.5
+0069:  BCF    06.4
+006A:  BCF    03.5
+006B:  BCF    06.4
+....................          delay_us(19000); 
+006C:  MOVLW  13
+006D:  MOVWF  21
+006E:  CALL   004
+006F:  INCF   20,F
+0070:  GOTO   036
+....................       } 
+....................        
+....................       for(i=0;i<15;i++){   //Cierro garra 
+0071:  CLRF   20
+0072:  MOVF   20,W
+0073:  SUBLW  0E
+0074:  BTFSS  03.0
+0075:  GOTO   0B4
+....................          output_high(b); 
+0076:  BSF    03.5
+0077:  BCF    06.0
+0078:  BCF    03.5
+0079:  BSF    06.0
+....................          output_high(h); 
+007A:  BSF    03.5
+007B:  BCF    06.1
+007C:  BCF    03.5
+007D:  BSF    06.1
+....................          output_high(c); 
+007E:  BSF    03.5
+007F:  BCF    06.2
+0080:  BCF    03.5
+0081:  BSF    06.2
+....................          output_high(m); 
+0082:  BSF    03.5
+0083:  BCF    06.3
+0084:  BCF    03.5
+0085:  BSF    06.3
+....................          delay_us(1600); 
+0086:  MOVLW  01
+0087:  MOVWF  21
+0088:  CALL   004
+0089:  MOVLW  03
+008A:  MOVWF  21
+008B:  MOVLW  C6
+008C:  MOVWF  22
+008D:  CALL   018
+008E:  DECFSZ 21,F
+008F:  GOTO   08B
+....................          output_low(b); 
+0090:  BSF    03.5
+0091:  BCF    06.0
+0092:  BCF    03.5
+0093:  BCF    06.0
+....................          output_low(h); 
+0094:  BSF    03.5
+0095:  BCF    06.1
+0096:  BCF    03.5
+0097:  BCF    06.1
+....................          output_low(c); 
+0098:  BSF    03.5
+0099:  BCF    06.2
+009A:  BCF    03.5
+009B:  BCF    06.2
+....................          output_low(m); 
+009C:  BSF    03.5
+009D:  BCF    06.3
+009E:  BCF    03.5
+009F:  BCF    06.3
+....................          output_high(g); 
+00A0:  BSF    03.5
+00A1:  BCF    06.4
+00A2:  BCF    03.5
+00A3:  BSF    06.4
+....................          delay_us(600); 
+00A4:  MOVLW  03
+00A5:  MOVWF  21
+00A6:  MOVLW  C6
+00A7:  MOVWF  22
+00A8:  CALL   018
+00A9:  DECFSZ 21,F
+00AA:  GOTO   0A6
+....................          output_low(g); 
+00AB:  BSF    03.5
+00AC:  BCF    06.4
+00AD:  BCF    03.5
+00AE:  BCF    06.4
+....................          delay_us(19000); 
+00AF:  MOVLW  13
+00B0:  MOVWF  21
+00B1:  CALL   004
+00B2:  INCF   20,F
+00B3:  GOTO   072
+....................       } 
+....................  
+....................      for(i=0;i<15;i++){   //Abro garra 
+00B4:  CLRF   20
+00B5:  MOVF   20,W
+00B6:  SUBLW  0E
+00B7:  BTFSS  03.0
+00B8:  GOTO   0FA
+....................          output_high(b); 
+00B9:  BSF    03.5
+00BA:  BCF    06.0
+00BB:  BCF    03.5
+00BC:  BSF    06.0
+....................          output_high(h); 
+00BD:  BSF    03.5
+00BE:  BCF    06.1
+00BF:  BCF    03.5
+00C0:  BSF    06.1
+....................          output_high(c); 
+00C1:  BSF    03.5
+00C2:  BCF    06.2
+00C3:  BCF    03.5
+00C4:  BSF    06.2
+....................          output_high(m); 
+00C5:  BSF    03.5
+00C6:  BCF    06.3
+00C7:  BCF    03.5
+00C8:  BSF    06.3
+....................          delay_us(1600); 
+00C9:  MOVLW  01
+00CA:  MOVWF  21
+00CB:  CALL   004
+00CC:  MOVLW  03
+00CD:  MOVWF  21
+00CE:  MOVLW  C6
+00CF:  MOVWF  22
+00D0:  CALL   018
+00D1:  DECFSZ 21,F
+00D2:  GOTO   0CE
+....................          output_low(b); 
+00D3:  BSF    03.5
+00D4:  BCF    06.0
+00D5:  BCF    03.5
+00D6:  BCF    06.0
+....................          output_low(h); 
+00D7:  BSF    03.5
+00D8:  BCF    06.1
+00D9:  BCF    03.5
+00DA:  BCF    06.1
+....................          output_low(c); 
+00DB:  BSF    03.5
+00DC:  BCF    06.2
+00DD:  BCF    03.5
+00DE:  BCF    06.2
+....................          output_low(m); 
+00DF:  BSF    03.5
+00E0:  BCF    06.3
+00E1:  BCF    03.5
+00E2:  BCF    06.3
+....................          output_high(g); 
+00E3:  BSF    03.5
+00E4:  BCF    06.4
+00E5:  BCF    03.5
+00E6:  BSF    06.4
+....................          delay_us(1600); 
+00E7:  MOVLW  01
+00E8:  MOVWF  21
+00E9:  CALL   004
+00EA:  MOVLW  03
+00EB:  MOVWF  21
+00EC:  MOVLW  C6
+00ED:  MOVWF  22
+00EE:  CALL   018
+00EF:  DECFSZ 21,F
+00F0:  GOTO   0EC
+....................          output_low(g); 
+00F1:  BSF    03.5
+00F2:  BCF    06.4
+00F3:  BCF    03.5
+00F4:  BCF    06.4
+....................          delay_us(19000); 
+00F5:  MOVLW  13
+00F6:  MOVWF  21
+00F7:  CALL   004
+00F8:  INCF   20,F
+00F9:  GOTO   0B5
+....................       } 
+....................        
+....................       for(i=0;i<15;i++){   //Cierro garra 2 
+00FA:  CLRF   20
+00FB:  MOVF   20,W
+00FC:  SUBLW  0E
+00FD:  BTFSS  03.0
+00FE:  GOTO   13D
+....................          output_high(b); 
+00FF:  BSF    03.5
+0100:  BCF    06.0
+0101:  BCF    03.5
+0102:  BSF    06.0
+....................          output_high(h); 
+0103:  BSF    03.5
+0104:  BCF    06.1
+0105:  BCF    03.5
+0106:  BSF    06.1
+....................          output_high(c); 
+0107:  BSF    03.5
+0108:  BCF    06.2
+0109:  BCF    03.5
+010A:  BSF    06.2
+....................          output_high(m); 
+010B:  BSF    03.5
+010C:  BCF    06.3
+010D:  BCF    03.5
+010E:  BSF    06.3
+....................          delay_us(1600); 
+010F:  MOVLW  01
+0110:  MOVWF  21
+0111:  CALL   004
+0112:  MOVLW  03
+0113:  MOVWF  21
+0114:  MOVLW  C6
+0115:  MOVWF  22
+0116:  CALL   018
+0117:  DECFSZ 21,F
+0118:  GOTO   114
+....................          output_low(b); 
+0119:  BSF    03.5
+011A:  BCF    06.0
+011B:  BCF    03.5
+011C:  BCF    06.0
+....................          output_low(h); 
+011D:  BSF    03.5
+011E:  BCF    06.1
+011F:  BCF    03.5
+0120:  BCF    06.1
+....................          output_low(c); 
+0121:  BSF    03.5
+0122:  BCF    06.2
+0123:  BCF    03.5
+0124:  BCF    06.2
+....................          output_low(m); 
+0125:  BSF    03.5
+0126:  BCF    06.3
+0127:  BCF    03.5
+0128:  BCF    06.3
+....................          output_high(g); 
+0129:  BSF    03.5
+012A:  BCF    06.4
+012B:  BCF    03.5
+012C:  BSF    06.4
+....................          delay_us(600); 
+012D:  MOVLW  03
+012E:  MOVWF  21
+012F:  MOVLW  C6
+0130:  MOVWF  22
+0131:  CALL   018
+0132:  DECFSZ 21,F
+0133:  GOTO   12F
+....................          output_low(g); 
+0134:  BSF    03.5
+0135:  BCF    06.4
+0136:  BCF    03.5
+0137:  BCF    06.4
+....................          delay_us(19000); 
+0138:  MOVLW  13
+0139:  MOVWF  21
+013A:  CALL   004
+013B:  INCF   20,F
+013C:  GOTO   0FB
+....................       } 
+....................        
+....................       for(i=0;i<30;i++){   //Vuelta muñeca 
+013D:  CLRF   20
+013E:  MOVF   20,W
+013F:  SUBLW  1D
+0140:  BTFSS  03.0
+0141:  GOTO   187
+....................          output_high(b); 
+0142:  BSF    03.5
+0143:  BCF    06.0
+0144:  BCF    03.5
+0145:  BSF    06.0
+....................          output_high(h); 
+0146:  BSF    03.5
+0147:  BCF    06.1
+0148:  BCF    03.5
+0149:  BSF    06.1
+....................          output_high(c); 
+014A:  BSF    03.5
+014B:  BCF    06.2
+014C:  BCF    03.5
+014D:  BSF    06.2
+....................          delay_us(1600); 
+014E:  MOVLW  01
+014F:  MOVWF  21
+0150:  CALL   004
+0151:  MOVLW  03
+0152:  MOVWF  21
+0153:  MOVLW  C6
+0154:  MOVWF  22
+0155:  CALL   018
+0156:  DECFSZ 21,F
+0157:  GOTO   153
+....................          output_low(b); 
+0158:  BSF    03.5
+0159:  BCF    06.0
+015A:  BCF    03.5
+015B:  BCF    06.0
+....................          output_low(h); 
+015C:  BSF    03.5
+015D:  BCF    06.1
+015E:  BCF    03.5
+015F:  BCF    06.1
+....................          output_low(c); 
+0160:  BSF    03.5
+0161:  BCF    06.2
+0162:  BCF    03.5
+0163:  BCF    06.2
+....................          output_high(m); 
+0164:  BSF    03.5
+0165:  BCF    06.3
+0166:  BCF    03.5
+0167:  BSF    06.3
+....................          delay_us(600); 
+0168:  MOVLW  03
+0169:  MOVWF  21
+016A:  MOVLW  C6
+016B:  MOVWF  22
+016C:  CALL   018
+016D:  DECFSZ 21,F
+016E:  GOTO   16A
+....................          output_low(m); 
+016F:  BSF    03.5
+0170:  BCF    06.3
+0171:  BCF    03.5
+0172:  BCF    06.3
+....................          output_high(g); 
+0173:  BSF    03.5
+0174:  BCF    06.4
+0175:  BCF    03.5
+0176:  BSF    06.4
+....................          delay_us(600); 
+0177:  MOVLW  03
+0178:  MOVWF  21
+0179:  MOVLW  C6
+017A:  MOVWF  22
+017B:  CALL   018
+017C:  DECFSZ 21,F
+017D:  GOTO   179
+....................          output_low(g); 
+017E:  BSF    03.5
+017F:  BCF    06.4
+0180:  BCF    03.5
+0181:  BCF    06.4
+....................          delay_us(19000); 
+0182:  MOVLW  13
+0183:  MOVWF  21
+0184:  CALL   004
+0185:  INCF   20,F
+0186:  GOTO   13E
+....................       } 
+....................        for(i=0;i<30;i++){   //Vuelta muñeca 2 
+0187:  CLRF   20
+0188:  MOVF   20,W
+0189:  SUBLW  1D
+018A:  BTFSS  03.0
+018B:  GOTO   1D4
+....................          output_high(b); 
+018C:  BSF    03.5
+018D:  BCF    06.0
+018E:  BCF    03.5
+018F:  BSF    06.0
+....................          output_high(h); 
+0190:  BSF    03.5
+0191:  BCF    06.1
+0192:  BCF    03.5
+0193:  BSF    06.1
+....................          output_high(c); 
+0194:  BSF    03.5
+0195:  BCF    06.2
+0196:  BCF    03.5
+0197:  BSF    06.2
+....................          delay_us(1600); 
+0198:  MOVLW  01
+0199:  MOVWF  21
+019A:  CALL   004
+019B:  MOVLW  03
+019C:  MOVWF  21
+019D:  MOVLW  C6
+019E:  MOVWF  22
+019F:  CALL   018
+01A0:  DECFSZ 21,F
+01A1:  GOTO   19D
+....................          output_low(b); 
+01A2:  BSF    03.5
+01A3:  BCF    06.0
+01A4:  BCF    03.5
+01A5:  BCF    06.0
+....................          output_low(h); 
+01A6:  BSF    03.5
+01A7:  BCF    06.1
+01A8:  BCF    03.5
+01A9:  BCF    06.1
+....................          output_low(c); 
+01AA:  BSF    03.5
+01AB:  BCF    06.2
+01AC:  BCF    03.5
+01AD:  BCF    06.2
+....................          output_high(m); 
+01AE:  BSF    03.5
+01AF:  BCF    06.3
+01B0:  BCF    03.5
+01B1:  BSF    06.3
+....................          delay_us(2600); 
+01B2:  MOVLW  02
+01B3:  MOVWF  21
+01B4:  CALL   004
+01B5:  MOVLW  03
+01B6:  MOVWF  21
+01B7:  MOVLW  C6
+01B8:  MOVWF  22
+01B9:  CALL   018
+01BA:  DECFSZ 21,F
+01BB:  GOTO   1B7
+....................          output_low(m); 
+01BC:  BSF    03.5
+01BD:  BCF    06.3
+01BE:  BCF    03.5
+01BF:  BCF    06.3
+....................          output_high(g); 
+01C0:  BSF    03.5
+01C1:  BCF    06.4
+01C2:  BCF    03.5
+01C3:  BSF    06.4
+....................          delay_us(600); 
+01C4:  MOVLW  03
+01C5:  MOVWF  21
+01C6:  MOVLW  C6
+01C7:  MOVWF  22
+01C8:  CALL   018
+01C9:  DECFSZ 21,F
+01CA:  GOTO   1C6
+....................          output_low(g); 
+01CB:  BSF    03.5
+01CC:  BCF    06.4
+01CD:  BCF    03.5
+01CE:  BCF    06.4
+....................          delay_us(19000); 
+01CF:  MOVLW  13
+01D0:  MOVWF  21
+01D1:  CALL   004
+01D2:  INCF   20,F
+01D3:  GOTO   188
+....................       } 
+....................             
+....................       for(i=0;i<50;i++){   //Posicionamiento para agarrar 
+01D4:  CLRF   20
+01D5:  MOVF   20,W
+01D6:  SUBLW  31
+01D7:  BTFSS  03.0
+01D8:  GOTO   231
+....................          output_high(b); 
+01D9:  BSF    03.5
+01DA:  BCF    06.0
+01DB:  BCF    03.5
+01DC:  BSF    06.0
+....................          delay_us(1100); 
+01DD:  MOVLW  01
+01DE:  MOVWF  21
+01DF:  CALL   004
+01E0:  MOVLW  64
+01E1:  MOVWF  22
+01E2:  CALL   018
+....................          output_low(b); 
+01E3:  BSF    03.5
+01E4:  BCF    06.0
+01E5:  BCF    03.5
+01E6:  BCF    06.0
+....................          output_high(g); 
+01E7:  BSF    03.5
+01E8:  BCF    06.4
+01E9:  BCF    03.5
+01EA:  BSF    06.4
+....................          delay_us(1600); 
+01EB:  MOVLW  01
+01EC:  MOVWF  21
+01ED:  CALL   004
+01EE:  MOVLW  03
+01EF:  MOVWF  21
+01F0:  MOVLW  C6
+01F1:  MOVWF  22
+01F2:  CALL   018
+01F3:  DECFSZ 21,F
+01F4:  GOTO   1F0
+....................          output_low(g); 
+01F5:  BSF    03.5
+01F6:  BCF    06.4
+01F7:  BCF    03.5
+01F8:  BCF    06.4
+....................          output_high(h); 
+01F9:  BSF    03.5
+01FA:  BCF    06.1
+01FB:  BCF    03.5
+01FC:  BSF    06.1
+....................          delay_us(1600); 
+01FD:  MOVLW  01
+01FE:  MOVWF  21
+01FF:  CALL   004
+0200:  MOVLW  03
+0201:  MOVWF  21
+0202:  MOVLW  C6
+0203:  MOVWF  22
+0204:  CALL   018
+0205:  DECFSZ 21,F
+0206:  GOTO   202
+....................          output_low(h); 
+0207:  BSF    03.5
+0208:  BCF    06.1
+0209:  BCF    03.5
+020A:  BCF    06.1
+....................          output_high(c); 
+020B:  BSF    03.5
+020C:  BCF    06.2
+020D:  BCF    03.5
+020E:  BSF    06.2
+....................          delay_us(600); 
+020F:  MOVLW  03
+0210:  MOVWF  21
+0211:  MOVLW  C6
+0212:  MOVWF  22
+0213:  CALL   018
+0214:  DECFSZ 21,F
+0215:  GOTO   211
+....................          output_low(c); 
+0216:  BSF    03.5
+0217:  BCF    06.2
+0218:  BCF    03.5
+0219:  BCF    06.2
+....................          output_high(m); 
+021A:  BSF    03.5
+021B:  BCF    06.3
+021C:  BCF    03.5
+021D:  BSF    06.3
+....................          delay_us(1600); 
+021E:  MOVLW  01
+021F:  MOVWF  21
+0220:  CALL   004
+0221:  MOVLW  03
+0222:  MOVWF  21
+0223:  MOVLW  C6
+0224:  MOVWF  22
+0225:  CALL   018
+0226:  DECFSZ 21,F
+0227:  GOTO   223
+....................          output_low(m); 
+0228:  BSF    03.5
+0229:  BCF    06.3
+022A:  BCF    03.5
+022B:  BCF    06.3
+....................          delay_us(19000);    
+022C:  MOVLW  13
+022D:  MOVWF  21
+022E:  CALL   004
+022F:  INCF   20,F
+0230:  GOTO   1D5
+....................       } 
+....................        
+....................       for(i=0;i<30;i++){   //Cierro garra 
+0231:  CLRF   20
+0232:  MOVF   20,W
+0233:  SUBLW  1D
+0234:  BTFSS  03.0
+0235:  GOTO   28B
+....................          output_high(b); 
+0236:  BSF    03.5
+0237:  BCF    06.0
+0238:  BCF    03.5
+0239:  BSF    06.0
+....................          delay_us(1100); 
+023A:  MOVLW  01
+023B:  MOVWF  21
+023C:  CALL   004
+023D:  MOVLW  64
+023E:  MOVWF  22
+023F:  CALL   018
+....................          output_low(b); 
+0240:  BSF    03.5
+0241:  BCF    06.0
+0242:  BCF    03.5
+0243:  BCF    06.0
+....................          output_high(g); 
+0244:  BSF    03.5
+0245:  BCF    06.4
+0246:  BCF    03.5
+0247:  BSF    06.4
+....................          delay_us(600); 
+0248:  MOVLW  03
+0249:  MOVWF  21
+024A:  MOVLW  C6
+024B:  MOVWF  22
+024C:  CALL   018
+024D:  DECFSZ 21,F
+024E:  GOTO   24A
+....................          output_low(g); 
+024F:  BSF    03.5
+0250:  BCF    06.4
+0251:  BCF    03.5
+0252:  BCF    06.4
+....................          output_high(h); 
+0253:  BSF    03.5
+0254:  BCF    06.1
+0255:  BCF    03.5
+0256:  BSF    06.1
+....................          delay_us(1600); 
+0257:  MOVLW  01
+0258:  MOVWF  21
+0259:  CALL   004
+025A:  MOVLW  03
+025B:  MOVWF  21
+025C:  MOVLW  C6
+025D:  MOVWF  22
+025E:  CALL   018
+025F:  DECFSZ 21,F
+0260:  GOTO   25C
+....................          output_low(h); 
+0261:  BSF    03.5
+0262:  BCF    06.1
+0263:  BCF    03.5
+0264:  BCF    06.1
+....................          output_high(c); 
+0265:  BSF    03.5
+0266:  BCF    06.2
+0267:  BCF    03.5
+0268:  BSF    06.2
+....................          delay_us(600); 
+0269:  MOVLW  03
+026A:  MOVWF  21
+026B:  MOVLW  C6
+026C:  MOVWF  22
+026D:  CALL   018
+026E:  DECFSZ 21,F
+026F:  GOTO   26B
+....................          output_low(c); 
+0270:  BSF    03.5
+0271:  BCF    06.2
+0272:  BCF    03.5
+0273:  BCF    06.2
+....................          output_high(m); 
+0274:  BSF    03.5
+0275:  BCF    06.3
+0276:  BCF    03.5
+0277:  BSF    06.3
+....................          delay_us(1600); 
+0278:  MOVLW  01
+0279:  MOVWF  21
+027A:  CALL   004
+027B:  MOVLW  03
+027C:  MOVWF  21
+027D:  MOVLW  C6
+027E:  MOVWF  22
+027F:  CALL   018
+0280:  DECFSZ 21,F
+0281:  GOTO   27D
+....................          output_low(m); 
+0282:  BSF    03.5
+0283:  BCF    06.3
+0284:  BCF    03.5
+0285:  BCF    06.3
+....................          delay_us(19000);         
+0286:  MOVLW  13
+0287:  MOVWF  21
+0288:  CALL   004
+0289:  INCF   20,F
+028A:  GOTO   232
+....................       } 
+....................        
+....................        for(i=0;i<30;i++){   //Subo un poco 
+028B:  CLRF   20
+028C:  MOVF   20,W
+028D:  SUBLW  1D
+028E:  BTFSS  03.0
+028F:  GOTO   2E4
+....................          output_high(b); 
+0290:  BSF    03.5
+0291:  BCF    06.0
+0292:  BCF    03.5
+0293:  BSF    06.0
+....................          delay_us(1100); 
+0294:  MOVLW  01
+0295:  MOVWF  21
+0296:  CALL   004
+0297:  MOVLW  64
+0298:  MOVWF  22
+0299:  CALL   018
+....................          output_low(b); 
+029A:  BSF    03.5
+029B:  BCF    06.0
+029C:  BCF    03.5
+029D:  BCF    06.0
+....................          output_high(g); 
+029E:  BSF    03.5
+029F:  BCF    06.4
+02A0:  BCF    03.5
+02A1:  BSF    06.4
+....................          delay_us(600); 
+02A2:  MOVLW  03
+02A3:  MOVWF  21
+02A4:  MOVLW  C6
+02A5:  MOVWF  22
+02A6:  CALL   018
+02A7:  DECFSZ 21,F
+02A8:  GOTO   2A4
+....................          output_low(g); 
+02A9:  BSF    03.5
+02AA:  BCF    06.4
+02AB:  BCF    03.5
+02AC:  BCF    06.4
+....................          output_high(h); 
+02AD:  BSF    03.5
+02AE:  BCF    06.1
+02AF:  BCF    03.5
+02B0:  BSF    06.1
+....................          delay_us(1600); 
+02B1:  MOVLW  01
+02B2:  MOVWF  21
+02B3:  CALL   004
+02B4:  MOVLW  03
+02B5:  MOVWF  21
+02B6:  MOVLW  C6
+02B7:  MOVWF  22
+02B8:  CALL   018
+02B9:  DECFSZ 21,F
+02BA:  GOTO   2B6
+....................          output_low(h); 
+02BB:  BSF    03.5
+02BC:  BCF    06.1
+02BD:  BCF    03.5
+02BE:  BCF    06.1
+....................          output_high(c); 
+02BF:  BSF    03.5
+02C0:  BCF    06.2
+02C1:  BCF    03.5
+02C2:  BSF    06.2
+....................          delay_us(1100); 
+02C3:  MOVLW  01
+02C4:  MOVWF  21
+02C5:  CALL   004
+02C6:  MOVLW  64
+02C7:  MOVWF  22
+02C8:  CALL   018
+....................          output_low(c); 
+02C9:  BSF    03.5
+02CA:  BCF    06.2
+02CB:  BCF    03.5
+02CC:  BCF    06.2
+....................          output_high(m); 
+02CD:  BSF    03.5
+02CE:  BCF    06.3
+02CF:  BCF    03.5
+02D0:  BSF    06.3
+....................          delay_us(1600); 
+02D1:  MOVLW  01
+02D2:  MOVWF  21
+02D3:  CALL   004
+02D4:  MOVLW  03
+02D5:  MOVWF  21
+02D6:  MOVLW  C6
+02D7:  MOVWF  22
+02D8:  CALL   018
+02D9:  DECFSZ 21,F
+02DA:  GOTO   2D6
+....................          output_low(m); 
+02DB:  BSF    03.5
+02DC:  BCF    06.3
+02DD:  BCF    03.5
+02DE:  BCF    06.3
+....................          delay_us(19000);         
+02DF:  MOVLW  13
+02E0:  MOVWF  21
+02E1:  CALL   004
+02E2:  INCF   20,F
+02E3:  GOTO   28C
+....................       } 
+....................        
+....................       for(i=0;i<30;i++){   //Muevo a la izquierda 
+02E4:  CLRF   20
+02E5:  MOVF   20,W
+02E6:  SUBLW  1D
+02E7:  BTFSS  03.0
+02E8:  GOTO   33D
+....................          output_high(b); 
+02E9:  BSF    03.5
+02EA:  BCF    06.0
+02EB:  BCF    03.5
+02EC:  BSF    06.0
+....................          delay_us(2100); 
+02ED:  MOVLW  02
+02EE:  MOVWF  21
+02EF:  CALL   004
+02F0:  MOVLW  64
+02F1:  MOVWF  22
+02F2:  CALL   018
+....................          output_low(b); 
+02F3:  BSF    03.5
+02F4:  BCF    06.0
+02F5:  BCF    03.5
+02F6:  BCF    06.0
+....................          output_high(g); 
+02F7:  BSF    03.5
+02F8:  BCF    06.4
+02F9:  BCF    03.5
+02FA:  BSF    06.4
+....................          delay_us(600); 
+02FB:  MOVLW  03
+02FC:  MOVWF  21
+02FD:  MOVLW  C6
+02FE:  MOVWF  22
+02FF:  CALL   018
+0300:  DECFSZ 21,F
+0301:  GOTO   2FD
+....................          output_low(g); 
+0302:  BSF    03.5
+0303:  BCF    06.4
+0304:  BCF    03.5
+0305:  BCF    06.4
+....................          output_high(h); 
+0306:  BSF    03.5
+0307:  BCF    06.1
+0308:  BCF    03.5
+0309:  BSF    06.1
+....................          delay_us(1600); 
+030A:  MOVLW  01
+030B:  MOVWF  21
+030C:  CALL   004
+030D:  MOVLW  03
+030E:  MOVWF  21
+030F:  MOVLW  C6
+0310:  MOVWF  22
+0311:  CALL   018
+0312:  DECFSZ 21,F
+0313:  GOTO   30F
+....................          output_low(h); 
+0314:  BSF    03.5
+0315:  BCF    06.1
+0316:  BCF    03.5
+0317:  BCF    06.1
+....................          output_high(c); 
+0318:  BSF    03.5
+0319:  BCF    06.2
+031A:  BCF    03.5
+031B:  BSF    06.2
+....................          delay_us(1100); 
+031C:  MOVLW  01
+031D:  MOVWF  21
+031E:  CALL   004
+031F:  MOVLW  64
+0320:  MOVWF  22
+0321:  CALL   018
+....................          output_low(c); 
+0322:  BSF    03.5
+0323:  BCF    06.2
+0324:  BCF    03.5
+0325:  BCF    06.2
+....................          output_high(m); 
+0326:  BSF    03.5
+0327:  BCF    06.3
+0328:  BCF    03.5
+0329:  BSF    06.3
+....................          delay_us(1600); 
+032A:  MOVLW  01
+032B:  MOVWF  21
+032C:  CALL   004
+032D:  MOVLW  03
+032E:  MOVWF  21
+032F:  MOVLW  C6
+0330:  MOVWF  22
+0331:  CALL   018
+0332:  DECFSZ 21,F
+0333:  GOTO   32F
+....................          output_low(m); 
+0334:  BSF    03.5
+0335:  BCF    06.3
+0336:  BCF    03.5
+0337:  BCF    06.3
+....................          delay_us(19000);         
+0338:  MOVLW  13
+0339:  MOVWF  21
+033A:  CALL   004
+033B:  INCF   20,F
+033C:  GOTO   2E5
+....................       } 
+....................       for(i=0;i<30;i++){   //Bajo 
+033D:  CLRF   20
+033E:  MOVF   20,W
+033F:  SUBLW  1D
+0340:  BTFSS  03.0
+0341:  GOTO   397
+....................          output_high(b); 
+0342:  BSF    03.5
+0343:  BCF    06.0
+0344:  BCF    03.5
+0345:  BSF    06.0
+....................          delay_us(2100); 
+0346:  MOVLW  02
+0347:  MOVWF  21
+0348:  CALL   004
+0349:  MOVLW  64
+034A:  MOVWF  22
+034B:  CALL   018
+....................          output_low(b); 
+034C:  BSF    03.5
+034D:  BCF    06.0
+034E:  BCF    03.5
+034F:  BCF    06.0
+....................          output_high(g); 
+0350:  BSF    03.5
+0351:  BCF    06.4
+0352:  BCF    03.5
+0353:  BSF    06.4
+....................          delay_us(600); 
+0354:  MOVLW  03
+0355:  MOVWF  21
+0356:  MOVLW  C6
+0357:  MOVWF  22
+0358:  CALL   018
+0359:  DECFSZ 21,F
+035A:  GOTO   356
+....................          output_low(g); 
+035B:  BSF    03.5
+035C:  BCF    06.4
+035D:  BCF    03.5
+035E:  BCF    06.4
+....................          output_high(h); 
+035F:  BSF    03.5
+0360:  BCF    06.1
+0361:  BCF    03.5
+0362:  BSF    06.1
+....................          delay_us(711); 
+0363:  MOVLW  03
+0364:  MOVWF  21
+0365:  MOVLW  EB
+0366:  MOVWF  22
+0367:  CALL   018
+0368:  DECFSZ 21,F
+0369:  GOTO   365
+....................          output_low(h); 
+036A:  BSF    03.5
+036B:  BCF    06.1
+036C:  BCF    03.5
+036D:  BCF    06.1
+....................          output_high(c); 
+036E:  BSF    03.5
+036F:  BCF    06.2
+0370:  BCF    03.5
+0371:  BSF    06.2
+....................          delay_us(1711); 
+0372:  MOVLW  01
+0373:  MOVWF  21
+0374:  CALL   004
+0375:  MOVLW  03
+0376:  MOVWF  21
+0377:  MOVLW  EB
+0378:  MOVWF  22
+0379:  CALL   018
+037A:  DECFSZ 21,F
+037B:  GOTO   377
+....................          output_low(c); 
+037C:  BSF    03.5
+037D:  BCF    06.2
+037E:  BCF    03.5
+037F:  BCF    06.2
+....................          output_high(m); 
+0380:  BSF    03.5
+0381:  BCF    06.3
+0382:  BCF    03.5
+0383:  BSF    06.3
+....................          delay_us(1600); 
+0384:  MOVLW  01
+0385:  MOVWF  21
+0386:  CALL   004
+0387:  MOVLW  03
+0388:  MOVWF  21
+0389:  MOVLW  C6
+038A:  MOVWF  22
+038B:  CALL   018
+038C:  DECFSZ 21,F
+038D:  GOTO   389
+....................          output_low(m); 
+038E:  BSF    03.5
+038F:  BCF    06.3
+0390:  BCF    03.5
+0391:  BCF    06.3
+....................          delay_us(19000);         
+0392:  MOVLW  13
+0393:  MOVWF  21
+0394:  CALL   004
+0395:  INCF   20,F
+0396:  GOTO   33E
+....................       } 
+....................        
+....................       for(i=0;i<30;i++){   //Abro garra 
+0397:  CLRF   20
+0398:  MOVF   20,W
+0399:  SUBLW  1D
+039A:  BTFSS  03.0
+039B:  GOTO   3F4
+....................          output_high(b); 
+039C:  BSF    03.5
+039D:  BCF    06.0
+039E:  BCF    03.5
+039F:  BSF    06.0
+....................          delay_us(2100); 
+03A0:  MOVLW  02
+03A1:  MOVWF  21
+03A2:  CALL   004
+03A3:  MOVLW  64
+03A4:  MOVWF  22
+03A5:  CALL   018
+....................          output_low(b); 
+03A6:  BSF    03.5
+03A7:  BCF    06.0
+03A8:  BCF    03.5
+03A9:  BCF    06.0
+....................          output_high(g); 
+03AA:  BSF    03.5
+03AB:  BCF    06.4
+03AC:  BCF    03.5
+03AD:  BSF    06.4
+....................          delay_us(1600); 
+03AE:  MOVLW  01
+03AF:  MOVWF  21
+03B0:  CALL   004
+03B1:  MOVLW  03
+03B2:  MOVWF  21
+03B3:  MOVLW  C6
+03B4:  MOVWF  22
+03B5:  CALL   018
+03B6:  DECFSZ 21,F
+03B7:  GOTO   3B3
+....................          output_low(g); 
+03B8:  BSF    03.5
+03B9:  BCF    06.4
+03BA:  BCF    03.5
+03BB:  BCF    06.4
+....................          output_high(h); 
+03BC:  BSF    03.5
+03BD:  BCF    06.1
+03BE:  BCF    03.5
+03BF:  BSF    06.1
+....................          delay_us(711); 
+03C0:  MOVLW  03
+03C1:  MOVWF  21
+03C2:  MOVLW  EB
+03C3:  MOVWF  22
+03C4:  CALL   018
+03C5:  DECFSZ 21,F
+03C6:  GOTO   3C2
+....................          output_low(h); 
+03C7:  BSF    03.5
+03C8:  BCF    06.1
+03C9:  BCF    03.5
+03CA:  BCF    06.1
+....................          output_high(c); 
+03CB:  BSF    03.5
+03CC:  BCF    06.2
+03CD:  BCF    03.5
+03CE:  BSF    06.2
+....................          delay_us(1711); 
+03CF:  MOVLW  01
+03D0:  MOVWF  21
+03D1:  CALL   004
+03D2:  MOVLW  03
+03D3:  MOVWF  21
+03D4:  MOVLW  EB
+03D5:  MOVWF  22
+03D6:  CALL   018
+03D7:  DECFSZ 21,F
+03D8:  GOTO   3D4
+....................          output_low(c); 
+03D9:  BSF    03.5
+03DA:  BCF    06.2
+03DB:  BCF    03.5
+03DC:  BCF    06.2
+....................          output_high(m); 
+03DD:  BSF    03.5
+03DE:  BCF    06.3
+03DF:  BCF    03.5
+03E0:  BSF    06.3
+....................          delay_us(1600); 
+03E1:  MOVLW  01
+03E2:  MOVWF  21
+03E3:  CALL   004
+03E4:  MOVLW  03
+03E5:  MOVWF  21
+03E6:  MOVLW  C6
+03E7:  MOVWF  22
+03E8:  CALL   018
+03E9:  DECFSZ 21,F
+03EA:  GOTO   3E6
+....................          output_low(m); 
+03EB:  BSF    03.5
+03EC:  BCF    06.3
+03ED:  BCF    03.5
+03EE:  BCF    06.3
+....................          delay_us(19000);         
+03EF:  MOVLW  13
+03F0:  MOVWF  21
+03F1:  CALL   004
+03F2:  INCF   20,F
+03F3:  GOTO   398
+....................       } 
+....................        
+....................       for(i=0;i<40;i++){   //Veo frente 
+03F4:  CLRF   20
+03F5:  MOVF   20,W
+03F6:  SUBLW  27
+03F7:  BTFSS  03.0
+03F8:  GOTO   452
+....................          output_high(b); 
+03F9:  BSF    03.5
+03FA:  BCF    06.0
+03FB:  BCF    03.5
+03FC:  BSF    06.0
+....................          delay_us(1600); 
+03FD:  MOVLW  01
+03FE:  MOVWF  21
+03FF:  CALL   004
+0400:  MOVLW  03
+0401:  MOVWF  21
+0402:  MOVLW  C6
+0403:  MOVWF  22
+0404:  CALL   018
+0405:  DECFSZ 21,F
+0406:  GOTO   402
+....................          output_low(b); 
+0407:  BSF    03.5
+0408:  BCF    06.0
+0409:  BCF    03.5
+040A:  BCF    06.0
+....................          output_high(g); 
+040B:  BSF    03.5
+040C:  BCF    06.4
+040D:  BCF    03.5
+040E:  BSF    06.4
+....................          delay_us(600); 
+040F:  MOVLW  03
+0410:  MOVWF  21
+0411:  MOVLW  C6
+0412:  MOVWF  22
+0413:  CALL   018
+0414:  DECFSZ 21,F
+0415:  GOTO   411
+....................          output_low(g); 
+0416:  BSF    03.5
+0417:  BCF    06.4
+0418:  BCF    03.5
+0419:  BCF    06.4
+....................          output_high(h); 
+041A:  BSF    03.5
+041B:  BCF    06.1
+041C:  BCF    03.5
+041D:  BSF    06.1
+....................          delay_us(1600); 
+041E:  MOVLW  01
+041F:  MOVWF  21
+0420:  CALL   004
+0421:  MOVLW  03
+0422:  MOVWF  21
+0423:  MOVLW  C6
+0424:  MOVWF  22
+0425:  CALL   018
+0426:  DECFSZ 21,F
+0427:  GOTO   423
+....................          output_low(h); 
+0428:  BSF    03.5
+0429:  BCF    06.1
+042A:  BCF    03.5
+042B:  BCF    06.1
+....................          output_high(c); 
+042C:  BSF    03.5
+042D:  BCF    06.2
+042E:  BCF    03.5
+042F:  BSF    06.2
+....................          delay_us(900); 
+0430:  MOVLW  04
+0431:  MOVWF  21
+0432:  MOVLW  DF
+0433:  MOVWF  22
+0434:  CALL   018
+0435:  DECFSZ 21,F
+0436:  GOTO   432
+....................          output_low(c); 
+0437:  BSF    03.5
+0438:  BCF    06.2
+0439:  BCF    03.5
+043A:  BCF    06.2
+....................          output_high(m); 
+043B:  BSF    03.5
+043C:  BCF    06.3
+043D:  BCF    03.5
+043E:  BSF    06.3
+....................          delay_us(1600); 
+043F:  MOVLW  01
+0440:  MOVWF  21
+0441:  CALL   004
+0442:  MOVLW  03
+0443:  MOVWF  21
+0444:  MOVLW  C6
+0445:  MOVWF  22
+0446:  CALL   018
+0447:  DECFSZ 21,F
+0448:  GOTO   444
+....................          output_low(m); 
+0449:  BSF    03.5
+044A:  BCF    06.3
+044B:  BCF    03.5
+044C:  BCF    06.3
+....................          delay_us(19000);         
+044D:  MOVLW  13
+044E:  MOVWF  21
+044F:  CALL   004
+0450:  INCF   20,F
+0451:  GOTO   3F5
+....................       } 
+....................        
+....................        for(i=0;i<15;i++){   //Abro garra 
+0452:  CLRF   20
+0453:  MOVF   20,W
+0454:  SUBLW  0E
+0455:  BTFSS  03.0
+0456:  GOTO   4B3
+....................          output_high(b); 
+0457:  BSF    03.5
+0458:  BCF    06.0
+0459:  BCF    03.5
+045A:  BSF    06.0
+....................          delay_us(1600); 
+045B:  MOVLW  01
+045C:  MOVWF  21
+045D:  CALL   004
+045E:  MOVLW  03
+045F:  MOVWF  21
+0460:  MOVLW  C6
+0461:  MOVWF  22
+0462:  CALL   018
+0463:  DECFSZ 21,F
+0464:  GOTO   460
+....................          output_low(b); 
+0465:  BSF    03.5
+0466:  BCF    06.0
+0467:  BCF    03.5
+0468:  BCF    06.0
+....................          output_high(g); 
+0469:  BSF    03.5
+046A:  BCF    06.4
+046B:  BCF    03.5
+046C:  BSF    06.4
+....................          delay_us(1600); 
+046D:  MOVLW  01
+046E:  MOVWF  21
+046F:  CALL   004
+0470:  MOVLW  03
+0471:  MOVWF  21
+0472:  MOVLW  C6
+0473:  MOVWF  22
+0474:  CALL   018
+0475:  DECFSZ 21,F
+0476:  GOTO   472
+....................          output_low(g); 
+0477:  BSF    03.5
+0478:  BCF    06.4
+0479:  BCF    03.5
+047A:  BCF    06.4
+....................          output_high(h); 
+047B:  BSF    03.5
+047C:  BCF    06.1
+047D:  BCF    03.5
+047E:  BSF    06.1
+....................          delay_us(1600); 
+047F:  MOVLW  01
+0480:  MOVWF  21
+0481:  CALL   004
+0482:  MOVLW  03
+0483:  MOVWF  21
+0484:  MOVLW  C6
+0485:  MOVWF  22
+0486:  CALL   018
+0487:  DECFSZ 21,F
+0488:  GOTO   484
+....................          output_low(h); 
+0489:  BSF    03.5
+048A:  BCF    06.1
+048B:  BCF    03.5
+048C:  BCF    06.1
+....................          output_high(c); 
+048D:  BSF    03.5
+048E:  BCF    06.2
+048F:  BCF    03.5
+0490:  BSF    06.2
+....................          delay_us(900); 
+0491:  MOVLW  04
+0492:  MOVWF  21
+0493:  MOVLW  DF
+0494:  MOVWF  22
+0495:  CALL   018
+0496:  DECFSZ 21,F
+0497:  GOTO   493
+....................          output_low(c); 
+0498:  BSF    03.5
+0499:  BCF    06.2
+049A:  BCF    03.5
+049B:  BCF    06.2
+....................          output_high(m); 
+049C:  BSF    03.5
+049D:  BCF    06.3
+049E:  BCF    03.5
+049F:  BSF    06.3
+....................          delay_us(1600); 
+04A0:  MOVLW  01
+04A1:  MOVWF  21
+04A2:  CALL   004
+04A3:  MOVLW  03
+04A4:  MOVWF  21
+04A5:  MOVLW  C6
+04A6:  MOVWF  22
+04A7:  CALL   018
+04A8:  DECFSZ 21,F
+04A9:  GOTO   4A5
+....................          output_low(m); 
+04AA:  BSF    03.5
+04AB:  BCF    06.3
+04AC:  BCF    03.5
+04AD:  BCF    06.3
+....................          delay_us(19000);         
+04AE:  MOVLW  13
+04AF:  MOVWF  21
+04B0:  CALL   004
+04B1:  INCF   20,F
+04B2:  GOTO   453
+....................       } 
+....................        
+....................        for(i=0;i<15;i++){   //Cierro garra 
+04B3:  CLRF   20
+04B4:  MOVF   20,W
+04B5:  SUBLW  0E
+04B6:  BTFSS  03.0
+04B7:  GOTO   511
+....................          output_high(b); 
+04B8:  BSF    03.5
+04B9:  BCF    06.0
+04BA:  BCF    03.5
+04BB:  BSF    06.0
+....................          delay_us(1600); 
+04BC:  MOVLW  01
+04BD:  MOVWF  21
+04BE:  CALL   004
+04BF:  MOVLW  03
+04C0:  MOVWF  21
+04C1:  MOVLW  C6
+04C2:  MOVWF  22
+04C3:  CALL   018
+04C4:  DECFSZ 21,F
+04C5:  GOTO   4C1
+....................          output_low(b); 
+04C6:  BSF    03.5
+04C7:  BCF    06.0
+04C8:  BCF    03.5
+04C9:  BCF    06.0
+....................          output_high(g); 
+04CA:  BSF    03.5
+04CB:  BCF    06.4
+04CC:  BCF    03.5
+04CD:  BSF    06.4
+....................          delay_us(600); 
+04CE:  MOVLW  03
+04CF:  MOVWF  21
+04D0:  MOVLW  C6
+04D1:  MOVWF  22
+04D2:  CALL   018
+04D3:  DECFSZ 21,F
+04D4:  GOTO   4D0
+....................          output_low(g); 
+04D5:  BSF    03.5
+04D6:  BCF    06.4
+04D7:  BCF    03.5
+04D8:  BCF    06.4
+....................          output_high(h); 
+04D9:  BSF    03.5
+04DA:  BCF    06.1
+04DB:  BCF    03.5
+04DC:  BSF    06.1
+....................          delay_us(1600); 
+04DD:  MOVLW  01
+04DE:  MOVWF  21
+04DF:  CALL   004
+04E0:  MOVLW  03
+04E1:  MOVWF  21
+04E2:  MOVLW  C6
+04E3:  MOVWF  22
+04E4:  CALL   018
+04E5:  DECFSZ 21,F
+04E6:  GOTO   4E2
+....................          output_low(h); 
+04E7:  BSF    03.5
+04E8:  BCF    06.1
+04E9:  BCF    03.5
+04EA:  BCF    06.1
+....................          output_high(c); 
+04EB:  BSF    03.5
+04EC:  BCF    06.2
+04ED:  BCF    03.5
+04EE:  BSF    06.2
+....................          delay_us(900); 
+04EF:  MOVLW  04
+04F0:  MOVWF  21
+04F1:  MOVLW  DF
+04F2:  MOVWF  22
+04F3:  CALL   018
+04F4:  DECFSZ 21,F
+04F5:  GOTO   4F1
+....................          output_low(c); 
+04F6:  BSF    03.5
+04F7:  BCF    06.2
+04F8:  BCF    03.5
+04F9:  BCF    06.2
+....................          output_high(m); 
+04FA:  BSF    03.5
+04FB:  BCF    06.3
+04FC:  BCF    03.5
+04FD:  BSF    06.3
+....................          delay_us(1600); 
+04FE:  MOVLW  01
+04FF:  MOVWF  21
+0500:  CALL   004
+0501:  MOVLW  03
+0502:  MOVWF  21
+0503:  MOVLW  C6
+0504:  MOVWF  22
+0505:  CALL   018
+0506:  DECFSZ 21,F
+0507:  GOTO   503
+....................          output_low(m); 
+0508:  BSF    03.5
+0509:  BCF    06.3
+050A:  BCF    03.5
+050B:  BCF    06.3
+....................          delay_us(19000);         
+050C:  MOVLW  13
+050D:  MOVWF  21
+050E:  CALL   004
+050F:  INCF   20,F
+0510:  GOTO   4B4
+....................       } 
+....................        
+....................        for(i=0;i<15;i++){   //Abro garra2 
+0511:  CLRF   20
+0512:  MOVF   20,W
+0513:  SUBLW  0E
+0514:  BTFSS  03.0
+0515:  GOTO   572
+....................          output_high(b); 
+0516:  BSF    03.5
+0517:  BCF    06.0
+0518:  BCF    03.5
+0519:  BSF    06.0
+....................          delay_us(1600); 
+051A:  MOVLW  01
+051B:  MOVWF  21
+051C:  CALL   004
+051D:  MOVLW  03
+051E:  MOVWF  21
+051F:  MOVLW  C6
+0520:  MOVWF  22
+0521:  CALL   018
+0522:  DECFSZ 21,F
+0523:  GOTO   51F
+....................          output_low(b); 
+0524:  BSF    03.5
+0525:  BCF    06.0
+0526:  BCF    03.5
+0527:  BCF    06.0
+....................          output_high(g); 
+0528:  BSF    03.5
+0529:  BCF    06.4
+052A:  BCF    03.5
+052B:  BSF    06.4
+....................          delay_us(1600); 
+052C:  MOVLW  01
+052D:  MOVWF  21
+052E:  CALL   004
+052F:  MOVLW  03
+0530:  MOVWF  21
+0531:  MOVLW  C6
+0532:  MOVWF  22
+0533:  CALL   018
+0534:  DECFSZ 21,F
+0535:  GOTO   531
+....................          output_low(g); 
+0536:  BSF    03.5
+0537:  BCF    06.4
+0538:  BCF    03.5
+0539:  BCF    06.4
+....................          output_high(h); 
+053A:  BSF    03.5
+053B:  BCF    06.1
+053C:  BCF    03.5
+053D:  BSF    06.1
+....................          delay_us(1600); 
+053E:  MOVLW  01
+053F:  MOVWF  21
+0540:  CALL   004
+0541:  MOVLW  03
+0542:  MOVWF  21
+0543:  MOVLW  C6
+0544:  MOVWF  22
+0545:  CALL   018
+0546:  DECFSZ 21,F
+0547:  GOTO   543
+....................          output_low(h); 
+0548:  BSF    03.5
+0549:  BCF    06.1
+054A:  BCF    03.5
+054B:  BCF    06.1
+....................          output_high(c); 
+054C:  BSF    03.5
+054D:  BCF    06.2
+054E:  BCF    03.5
+054F:  BSF    06.2
+....................          delay_us(900); 
+0550:  MOVLW  04
+0551:  MOVWF  21
+0552:  MOVLW  DF
+0553:  MOVWF  22
+0554:  CALL   018
+0555:  DECFSZ 21,F
+0556:  GOTO   552
+....................          output_low(c); 
+0557:  BSF    03.5
+0558:  BCF    06.2
+0559:  BCF    03.5
+055A:  BCF    06.2
+....................          output_high(m); 
+055B:  BSF    03.5
+055C:  BCF    06.3
+055D:  BCF    03.5
+055E:  BSF    06.3
+....................          delay_us(1600); 
+055F:  MOVLW  01
+0560:  MOVWF  21
+0561:  CALL   004
+0562:  MOVLW  03
+0563:  MOVWF  21
+0564:  MOVLW  C6
+0565:  MOVWF  22
+0566:  CALL   018
+0567:  DECFSZ 21,F
+0568:  GOTO   564
+....................          output_low(m); 
+0569:  BSF    03.5
+056A:  BCF    06.3
+056B:  BCF    03.5
+056C:  BCF    06.3
+....................          delay_us(19000);         
+056D:  MOVLW  13
+056E:  MOVWF  21
+056F:  CALL   004
+0570:  INCF   20,F
+0571:  GOTO   512
+....................       } 
+....................        
+....................        for(i=0;i<15;i++){   //Cierro garra2 
+0572:  CLRF   20
+0573:  MOVF   20,W
+0574:  SUBLW  0E
+0575:  BTFSS  03.0
+0576:  GOTO   5D0
+....................          output_high(b); 
+0577:  BSF    03.5
+0578:  BCF    06.0
+0579:  BCF    03.5
+057A:  BSF    06.0
+....................          delay_us(1600); 
+057B:  MOVLW  01
+057C:  MOVWF  21
+057D:  CALL   004
+057E:  MOVLW  03
+057F:  MOVWF  21
+0580:  MOVLW  C6
+0581:  MOVWF  22
+0582:  CALL   018
+0583:  DECFSZ 21,F
+0584:  GOTO   580
+....................          output_low(b); 
+0585:  BSF    03.5
+0586:  BCF    06.0
+0587:  BCF    03.5
+0588:  BCF    06.0
+....................          output_high(g); 
+0589:  BSF    03.5
+058A:  BCF    06.4
+058B:  BCF    03.5
+058C:  BSF    06.4
+....................          delay_us(600); 
+058D:  MOVLW  03
+058E:  MOVWF  21
+058F:  MOVLW  C6
+0590:  MOVWF  22
+0591:  CALL   018
+0592:  DECFSZ 21,F
+0593:  GOTO   58F
+....................          output_low(g); 
+0594:  BSF    03.5
+0595:  BCF    06.4
+0596:  BCF    03.5
+0597:  BCF    06.4
+....................          output_high(h); 
+0598:  BSF    03.5
+0599:  BCF    06.1
+059A:  BCF    03.5
+059B:  BSF    06.1
+....................          delay_us(1600); 
+059C:  MOVLW  01
+059D:  MOVWF  21
+059E:  CALL   004
+059F:  MOVLW  03
+05A0:  MOVWF  21
+05A1:  MOVLW  C6
+05A2:  MOVWF  22
+05A3:  CALL   018
+05A4:  DECFSZ 21,F
+05A5:  GOTO   5A1
+....................          output_low(h); 
+05A6:  BSF    03.5
+05A7:  BCF    06.1
+05A8:  BCF    03.5
+05A9:  BCF    06.1
+....................          output_high(c); 
+05AA:  BSF    03.5
+05AB:  BCF    06.2
+05AC:  BCF    03.5
+05AD:  BSF    06.2
+....................          delay_us(900); 
+05AE:  MOVLW  04
+05AF:  MOVWF  21
+05B0:  MOVLW  DF
+05B1:  MOVWF  22
+05B2:  CALL   018
+05B3:  DECFSZ 21,F
+05B4:  GOTO   5B0
+....................          output_low(c); 
+05B5:  BSF    03.5
+05B6:  BCF    06.2
+05B7:  BCF    03.5
+05B8:  BCF    06.2
+....................          output_high(m); 
+05B9:  BSF    03.5
+05BA:  BCF    06.3
+05BB:  BCF    03.5
+05BC:  BSF    06.3
+....................          delay_us(1600); 
+05BD:  MOVLW  01
+05BE:  MOVWF  21
+05BF:  CALL   004
+05C0:  MOVLW  03
+05C1:  MOVWF  21
+05C2:  MOVLW  C6
+05C3:  MOVWF  22
+05C4:  CALL   018
+05C5:  DECFSZ 21,F
+05C6:  GOTO   5C2
+....................          output_low(m); 
+05C7:  BSF    03.5
+05C8:  BCF    06.3
+05C9:  BCF    03.5
+05CA:  BCF    06.3
+....................          delay_us(19000);         
+05CB:  MOVLW  13
+05CC:  MOVWF  21
+05CD:  CALL   004
+05CE:  INCF   20,F
+05CF:  GOTO   573
+....................       } 
+05D0:  GOTO   035
+....................    } 
+.................... } 
+....................  
+05D1:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F72   HS NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

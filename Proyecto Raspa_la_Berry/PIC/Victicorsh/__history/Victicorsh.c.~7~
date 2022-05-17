@@ -1,0 +1,19 @@
+#include<16f877a.h>
+#use delay(clock=4M)
+#fuses NOWDT, NOLVP
+
+int x=0;
+
+void main(){
+   while(true){
+      if(input(pin_A1)==HIGH && x==0){
+         output_high(pin_B0);
+         output_high(pin_B1);
+         output_high(pin_B2);
+         x=x+1;
+      }
+      if(input_high(pin_A1)==HIGH && x==1){
+      
+      }
+   }
+}

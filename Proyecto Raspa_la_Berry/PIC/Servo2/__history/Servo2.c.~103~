@@ -1,0 +1,25 @@
+#include <16f877a.h>
+#use DELAY(CLOCK=8M)
+#FUSES HS, NOWDT, NOLVP
+#DEFINE base pin_b0
+#DEFINE hombro pin_b1
+#DEFINE codo pin_b2
+#DEFINE muneca pin_b3
+#DEFINE garra pin_b4
+
+int i;
+
+
+void main(){
+   while(true){
+   
+      for(i=0;i<=100;i++) {
+      output_high(hombro);
+      delay_us(600);
+      output_low(hombro);
+      delay_us(1900);
+      }
+      
+      
+   }
+}

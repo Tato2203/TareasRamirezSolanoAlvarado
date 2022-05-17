@@ -1,0 +1,62 @@
+[PROJECT]
+Target=Move.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.059
+Compiler=PCM
+[Target Data]
+FileList=Move.c
+[Move.c]
+Type=4
+[mru-list]
+1=Move.c
+
+[defines]
+buildcount=7
+
+[Opened Files]
+1=Move.c
+t1=1
+Count=1
+2=..\Proyecto\Proyecto.c
+t2=1
+
+[ProjectLog]
+Days=2
+D1=18-08-2018
+D1_L=19
+D1_L1=[59840]Started Editing.
+D1_L2=[60149]Stopped Editing.
+D1_L3=[60561]Started Editing.
+D1_L4=[60892]Stopped Editing.
+D1_L5=[61972]Started Editing.
+D1_L6=[62163]Stopped Editing.
+TotalEdit=14
+TotalDebug=0
+D1_E=13
+D1_D=0
+D1_L7=[62163]Project Closed.
+D1_L8=[62241]Project Opened.
+D1_L9=[62581]Started Editing.
+D1_L10=[62987]Stopped Editing.
+D1_L11=[62987]Project Closed.
+D1_L12=[63014]Project Opened.
+D1_L13=[63052]Project Closed.
+D1_L14=[63942]Project Opened.
+D1_L15=[64067]Started Editing.
+D1_L16=[64367]Stopped Editing.
+D1_L17=[64555]Started Editing.
+D1_L18=[64650]Stopped Editing.
+D1_L19=[64650]Project Closed.
+D2=19-08-2018
+D2_L=6
+D2_L1=[45812]Project Opened.
+D2_L2=[45852]Started Editing.
+D2_L3=[45864]Stopped Editing.
+D2_E=1
+D2_D=0
+D2_L4=[45864]Project Closed.
+D2_L5=[50336]Project Opened.
+D2_L6=[50687]Project Closed.
+[Units]
+Count=1
+1=Move (main)

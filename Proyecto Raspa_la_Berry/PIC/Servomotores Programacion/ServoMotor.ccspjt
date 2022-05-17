@@ -1,0 +1,73 @@
+[PROJECT]
+Target=ServoMotor.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.059
+Compiler=PCM
+[Target Data]
+FileList=ServoMotor.c
+[ServoMotor.c]
+Type=4
+[mru-list]
+1=ServoMotor.c
+
+[defines]
+buildcount=24
+
+[Opened Files]
+1=ServoMotor.c
+t1=1
+Count=2
+2=..\Servo2\Servo2.c
+t2=1
+
+[ProjectLog]
+Days=6
+D1=07-07-2018
+D1_L=3
+D1_L1=[59305]Stopped Editing.
+D1_L2=[74596]Started Editing.
+D1_L3=[74962]Stopped Editing.
+D2=08-07-2018
+D2_L=5
+D2_L1=[41025]Started Editing.
+D2_L2=[41984]Stopped Editing.
+D2_L3=[42071]Started Editing.
+D2_L4=[42376]Stopped Editing.
+TotalEdit=37
+TotalDebug=0
+D2_E=26
+D2_D=0
+D2_L5=[42687]Project Closed.
+D3=09-07-2018
+D3_L=4
+D3_L1=[58486]Project Opened.
+D3_L2=[58488]Project Closed.
+D3_L3=[58490]Project Opened.
+D3_L4=[58570]Project Closed.
+D4=30-07-2018
+D4_L=10
+D4_L1=[36773]Project Opened.
+D4_L2=[36775]Project Closed.
+D4_L3=[36870]Project Opened.
+D4_L4=[37009]Started Editing.
+D4_L5=[37310]Stopped Editing.
+D4_L6=[38167]Started Editing.
+D4_L7=[38563]Stopped Editing.
+D4_L8=[39010]Started Editing.
+D4_L9=[39520]Stopped Editing.
+D4_E=11
+D4_D=0
+D4_L10=[39520]Project Closed.
+D5=31-07-2018
+D5_L=4
+D5_L1=[26556]Project Opened.
+D5_L2=[26558]Project Closed.
+D5_L3=[26559]Project Opened.
+D5_L4=[26631]Project Closed.
+D6=16-08-2018
+D6_L=2
+D6_L1=[73104]Project Opened.
+D6_L2=[73124]Project Closed.
+[Units]
+Count=1
+1=ServoMotor (main)

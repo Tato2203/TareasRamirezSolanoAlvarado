@@ -1,0 +1,84 @@
+#include<16F877a.h>
+#use delay(clock=8M)
+#fuses NOLVP,NOWDT,HS
+
+#use standard_io(B)
+#use standard_io(C)
+#use standard_io(D)
+
+#define trig pin_B0
+#define echo pin_B1
+
+#define b pin_B2
+#define h pin_B3
+#define c pin_B4
+#define m pin_B5
+#define g pin_B6
+
+#define m1f pin_D0
+#define m1b pin_D1
+#define m2f pin_D3
+#define m2b pin_D4
+#define m3f pin_D5
+#define m3b pin_D6
+#define m4f pin_D7
+#define m4b pin_C8
+
+float t;
+int i;
+
+void dist(float d){
+   setup_timer_1(T1_INTERNAL|T1_DIV_BY_1);
+   while(true){
+      output_high(trig);
+      delay_us(10);
+      output_low(trig);
+      while(!input(echo))
+      {}
+      set_timer1(0);
+      while(input(echo))
+      {}
+      t=get_timer1();
+      d=(t/2)/(29.15);
+      
+   }
+}
+
+void home(){
+   for(i=0;i<=50;i++){
+      output_high(h);
+      output_high(c);
+      output_high(m);
+      output_high(g);
+      output_high(b);
+      delay_us(1600);
+      output_low(h);
+      output_low(c);
+      output_low(m);
+      output_low(g);
+      output_low(b);
+      delay_us(19000);
+   }
+}
+
+/*void go_forward(){
+
+}
+
+void go_backward(){
+
+}
+
+void turn(){
+
+}
+
+void take(){
+
+}*/
+
+void main(){
+   while(true){
+   home();
+   }
+}

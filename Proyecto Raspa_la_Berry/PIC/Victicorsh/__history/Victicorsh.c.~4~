@@ -1,0 +1,13 @@
+#include<16f877a.h>
+#use delay(clock=4M)
+#fuses NOWDT, NOLVP, XTAL
+
+int x=0;
+
+void main(){
+   while(true){
+      if(input_high(pin_A1) && x==0){
+         output_high(pin_B0);
+      }
+   }
+}

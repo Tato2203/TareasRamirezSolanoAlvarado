@@ -1,0 +1,40 @@
+#INCLUDE<16F877A.h>
+#USE delay (CLOCK=8M)
+#FUSES HS, NOWDT, NOLVP
+#DEFINE g pin_b4
+#DEFINE m pin_b3
+#DEFINE c pin_b2
+#DEFINE h pin_b1
+#DEFINE b pin_b0
+
+int i;
+
+void main(){
+   while(true){
+      for(i=0;i<50;i++){
+         output_high(b);
+         output_high(h);
+         output_high(c);
+         output_high(m);
+         output_high(g);
+         delay_us(1600);
+         output_low(b);
+         output_low(h);
+         output_low(c);
+         output_low(m);
+         output_low(g);
+         delay_us(19000);
+      }
+      for(i=0;i<1150;i++){
+         output_high(b);
+         delay_us(600);
+         output_low(b);
+         delay_us(1900);
+         output_high(g);
+         delay_us(822);
+         output_low(g);
+         delay_us(19000);
+      }
+   }
+}
+
