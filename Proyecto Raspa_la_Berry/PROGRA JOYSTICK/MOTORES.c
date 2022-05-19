@@ -34,8 +34,8 @@ unsigned int ADC_Read1(unsigned char canal){
 ADCON0 &= 0xC5; //Clear de canal
 ADCON0 |= (canal<<3); //Shifteamos 3 para movernos a los bit responsables de direccion en ADCON0
 ADCON0 |= 4;//inicia la lectura
-delay_us(20); //tiempo en el que el capacitor carga los datos
-ADCON.Go = 0;
+delay_ms(100); //tiempo en el que el capacitor carga los datos
+ADCON0.GO =0;
 //while (ADCON0.GO == 1) {
 return ((ADRESH <<8) + ADRESL); //Retorna los 8bits ya que no son necesarios los 10 para esta aplicacion
 //}
@@ -55,42 +55,77 @@ TRISA.RA1 = 1;
 TRISA.RA3 = 1;
 //se iniicializan los puertos de entrada
 PORTA.RA0 = 0;
-PORTA.RA0 = 0;
-PORTA.RA0 = 0;
+PORTA.RA1 = 0;
+PORTA.RA2 = 0;
 //se inicializan como outputs
 TRISB.RB3 = 0;  //motor horizontal
 TRISB.RB4 = 0;  //motor vertical
+TRISB.RB5 = 0;  //motor horizontal
+TRISB.RB6 = 0;  //motor vertical
 //se inicializan los puertos de las salidas
 PORTB.RB3 = 0;
 PORTB.RB4 = 0;
+PORTB.RB5 = 0;
+PORTB.RB6 = 0;
 ADC_INITI();
 delay_ms(100);
+UART1_Init(9600);
+delay_ms(100);
 
+
+/*while (1){
+HOR = ADC_Read1(0);  //movimiento horizontal
+if (HOR < 200){
+PORTB.RB3 = 1;
+PORTB.RB4 = 0;
+}
+else if (HOR > 800){
+PORTB.RB3 = 0;
+PORTB.RB4 = 1;
+}
+else {
+PORTB.RB3 = 0;
+PORTB.RB4 = 0;
+}
+
+VER = ADC_Read1(1);  //movimiento vertical
+if (VER < 200){
+PORTB.RB5 = 0;
+PORTB.RB6 = 1;
+}
+else if (VER > 800){
+PORTB.RB5 = 1;
+PORTB.RB6 = 0;
+}
+else {
+PORTB.RB5 = 0;
+PORTB.RB6 = 0;
+}
+
+//VER = ADC_Read (1); //movimiento vertical
+//if (VER |= 0){}
+}
+*/
 while (1){
 HOR = ADC_Read1 (0);  //movimiento horizontal
-if (HOR < 120){
+UART1_Write_Text("Nadir");
+if (HOR < 500){
 PORTB.RB3 = 1;
 delay_ms(1);
 PORTB.RB3 = 0;
 delay_ms(19);
 }
-if (HOR > 130){
+if (HOR > 530){
 PORTB.RB3 = 1;
 delay_us(2200);
 PORTB.RB3 = 0;
 delay_ms(19);
 }
-if (HOR >= 120, HOR <= 130){
+if (HOR >= 500, HOR <= 530){
 PORTB.RB3 = 1;
 delay_us(1500);
 PORTB.RB3 = 0;
 delay_ms(19);
 }
-
-
-//VER = ADC_Read (1); //movimiento vertical
-//if (VER |= 0){}
 }
-
-
 }
