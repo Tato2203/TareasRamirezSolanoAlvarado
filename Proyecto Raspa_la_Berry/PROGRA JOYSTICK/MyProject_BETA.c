@@ -35,9 +35,10 @@ ADCON0 &= 0xC5; //Clear de canal
 ADCON0 |= (canal<<3); //Shifteamos 3 para movernos a los bit responsables de direccion en ADCON0
 ADCON0 |= 4;//inicia la lectura
 delay_us(20); //tiempo en el que el capacitor carga los datos
-while (ADCON0.GO == 1) {
+ADCON.Go = 0;
+//while (ADCON0.GO == 1) {
 return ((ADRESH <<8) + ADRESL); //Retorna los 8bits ya que no son necesarios los 10 para esta aplicacion
-}
+//}
 }
 
  //variables a utilizar
@@ -67,7 +68,6 @@ delay_ms(100);
 
 while (1){
 HOR = ADC_Read1 (0);  //movimiento horizontal
-if (HOR|= 0){
 if (HOR < 120){
 PORTB.RB3 = 1;
 delay_ms(1);
@@ -86,7 +86,7 @@ delay_us(1500);
 PORTB.RB3 = 0;
 delay_ms(19);
 }
-}
+
 
 //VER = ADC_Read (1); //movimiento vertical
 //if (VER |= 0){}
