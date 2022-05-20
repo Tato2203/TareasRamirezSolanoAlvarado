@@ -24,9 +24,14 @@
 //TIMER0    8-bit    $$RegValue = 256-((Delay * Fosc)/(Prescalar*4))$$
 
 char value = 0;
-int on_time ;//= 150; //On-Time for the PWM signal
-int count; //count gets incremented for every timer overlap
-int pot_value;
+int on_time1 ;//= 150; //On-Time for the PWM signal
+int count1; //count gets incremented for every timer overlap
+int pot_value1;
+
+//another potenciometer
+int on_time2 ;//= 150; //On-Time for the PWM signal
+int count2; //count gets incremented for every timer overlap
+int pot_value2;
 
 /*********ADC Functions*********/
 void ADC_Init()
@@ -39,8 +44,8 @@ unsigned int ADC_Read(unsigned char channel)
 {
   if(channel > 7) //If Invalid channel selected 
     return 0;     //Return 0
-  ADCON0 &= 0xC5; //Clearing the Channel Selection Bits
-  ADCON0 |= channel<<3; //Setting the required Bits
+  ADCON0 &= 0xC5; //Clearing the Channel Selection Bits, funciona como una AND: C &= 2 is same as C = C & 2
+  ADCON0 |= channel<<3; //Setting the required Bits, funciona como una OR: C |= 2 is same as C = C | 2
   __delay_ms(2); //Acquisition time to charge hold capacitor
   GO_nDONE = 1; //Initializes A/D Conversion
   while(GO_nDONE); //Wait for A/D Conversion to complete
@@ -55,18 +60,32 @@ void __interrupt() timer_isr(void)
         TMR0 = 252;     /*Load the timer Value, (Note: Timervalue is 101 instaed of 100 as the
                           TImer0 needs two instruction Cycles to start incrementing TMR0 */
         TMR0IF=0;       // Clear timer interrupt flag
-        count++;
+        count1++;
+        count2++;
     } 
     
-    if (count >= on_time)
+    if (count1 >= on_time1)
     {
         RB0=1;  // complement the value for blinking the LEDs
     }
 
-    if (count >= (on_time+(200-on_time)))
+    if (count1 >= (on_time1+(200-on_time1)))
     {
         RB0=0;
-        count=0;
+        count1=0;
+    }
+    
+    //
+    
+    if (count2 >= on_time2)
+    {
+        RB1=1;  // complement the value for blinking the LEDs
+    }
+
+    if (count2 >= (on_time2+(200-on_time2)))
+    {
+        RB1=0;
+        count2=0;
     }
 }
 
@@ -86,7 +105,10 @@ void main()
 
     while(1)
     { 
-        pot_value = (ADC_Read(4))*0.039;
-        on_time = (170-pot_value);
+        pot_value1 = (ADC_Read(4))*0.039; // el valor que se encuentra dentro del ADC_read es el canal ANx
+        on_time1 = (170-pot_value1);
+        
+        pot_value2 = (ADC_Read(3))*0.039; // el valor que se encuentra dentro del ADC_read es el canal ANx
+        on_time2 = (170-pot_value2);
     }
 }
