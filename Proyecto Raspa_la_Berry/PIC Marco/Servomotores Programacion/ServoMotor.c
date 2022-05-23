@@ -1,3 +1,5 @@
+//esta progra compiló en PIC C Compiler
+
 #include<16F877a.h>
 #FUSES HS, NOWDT, NOLVP 
 #use DELAY(CLOCK=8M)

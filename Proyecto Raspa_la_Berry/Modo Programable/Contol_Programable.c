@@ -18,7 +18,7 @@ void main()
    servo_2_write(0);
    delay_ms(1000);
    //Servo 1 controla la base
-   //Servi 2 controla el cañón
+   //Servo 2 controla el cañón
    while(true)
    {
       ///////////////////////// Secuencia 1 /////////////////////////Moverse en un eje/rotación X cantidad de unidades
