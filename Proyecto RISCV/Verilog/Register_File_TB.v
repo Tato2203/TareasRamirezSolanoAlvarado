@@ -21,7 +21,7 @@
 
 
 module Register_File_TB();
- reg [4:0] Add_A; //Registro 1 
+    reg [4:0] Add_A; //Registro 1 
     reg [4:0] Add_B; //Registro 2
     reg [4:0] Add_Dest; //Registro Destino
     reg  [31:0] Write_Data; //Informacion 
@@ -40,7 +40,41 @@ module Register_File_TB();
     .Info_A(Info_A),
     .Info_B(Info_B)
     );
-    
+
+always #5 CLK=~CLK;
+initial begin
+CLK = 0;
+Add_A = 5'd0;
+Add_B = 5'd0;
+Write_En = 1;
+Add_Dest = 5'd0;
+Write_Data = 32'd30;
+#100
+Add_Dest = 5'd1;
+Write_Data = 32'd20;
+#100
+Add_Dest = 5'd2;
+Write_Data = 32'd25;
+#100
+Add_Dest = 5'd3;
+Write_Data = 32'd5;
+#100
+Add_Dest = 5'd4;
+Write_Data = 32'd8;
+#100
+Write_En = 0;
+Add_A = 5'd3;
+Add_B = 5'd1;
+#100
+Add_A = 5'd2;
+Add_B = 5'd0;
+#100
+Write_En = 1;
+Add_A = 5'd3;
+Add_B = 5'd3;
+Add_Dest = 5'd7;
+Write_Data = 32'd4;
+end
 
 endmodule
 
