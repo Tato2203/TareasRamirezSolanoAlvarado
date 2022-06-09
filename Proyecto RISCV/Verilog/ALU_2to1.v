@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 06/06/2022 02:22:25 PM
+// Create Date: 06/08/2022 05:54:00 PM
 // Design Name: 
 // Module Name: ALU_2to1
 // Project Name: 
@@ -18,6 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
+
 
 module ALU_2to1(
     input [31:0] In_a,        
@@ -37,3 +38,4 @@ module ALU_2to1(
         
     end
 endmodule
+

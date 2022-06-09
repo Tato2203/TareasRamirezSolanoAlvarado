@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 06/06/2022 05:39:33 PM
+// Create Date: 06/08/2022 06:11:05 PM
 // Design Name: 
 // Module Name: Mux_3to1
 // Project Name: 
@@ -18,7 +18,6 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
 
 
 module Mux_3to1(
@@ -37,3 +36,5 @@ module Mux_3to1(
     endcase  
    end  
 endmodule
+
+

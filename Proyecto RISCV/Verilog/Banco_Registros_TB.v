@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 05/13/2022 12:47:09 AM
+// Create Date: 06/08/2022 07:20:30 PM
 // Design Name: 
 // Module Name: Banco_Registros_TB
 // Project Name: 
@@ -29,7 +29,7 @@ module Banco_Registros_TB();
     reg  Write_En;//Write Enable 
     wire [31:0] Info_A; //Contenido del Registro A
     wire [31:0] Info_B; //Contenido del Registro B
-    
+
     Banco_Registros uut (
     .Add_A(Add_A),
     .Add_B(Add_B),
@@ -41,10 +41,14 @@ module Banco_Registros_TB();
     .Info_A(Info_A),
     .Info_B(Info_B)
     );
-    
+
 always #5 CLK=~CLK;
 initial begin
 CLK = 0;
+RST=1;
+#10
+RST=0;
+#10
 Add_A = 5'd0;
 Add_B = 5'd0;
 Write_En = 1;

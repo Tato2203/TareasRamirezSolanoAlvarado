@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 05/12/2022 04:53:24 PM
+// Create Date: 06/08/2022 06:06:20 PM
 // Design Name: 
 // Module Name: Mem_Datos
 // Project Name: 
@@ -47,6 +47,9 @@ end else begin
 if (Write_EN == 1'b1)begin
 MEMORIA[ALUResult] <= WriteData;
 Read_Data <= WriteData;
+
+// agregar la escritura de ALUResult y de  WriteData a algún txt
+
 end
 else begin 
 Read_Data <= MEMORIA[ALUResult];

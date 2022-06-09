@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 06/06/2022 02:24:38 PM
+// Create Date: 06/08/2022 05:54:37 PM
 // Design Name: 
 // Module Name: ALU_suma
 // Project Name: 
@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-// Verilog code for ALU
+
 module ALU_suma(
     input [31:0] PC_reg_out,
     output reg [31:0] Next_PC

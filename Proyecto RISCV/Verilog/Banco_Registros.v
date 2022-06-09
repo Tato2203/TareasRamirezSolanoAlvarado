@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 05/12/2022 09:19:53 PM
+// Create Date: 06/08/2022 05:58:07 PM
 // Design Name: 
 // Module Name: Banco_Registros
 // Project Name: 
@@ -32,31 +32,32 @@ module Banco_Registros(
     output reg [31:0] Info_B //Contenido del Registro B
     );
     
-reg [31:0] REGISTROS [0:31];
+reg [31:0] REGISTROS [31:0];
 integer i;
 
 initial begin //Inicializando las Memorias 
-/*
+
 for (i=0; i<32; i=i+1)
     begin
-    REGISTROS[i]=i;
+    REGISTROS[i]=0;
     end
-*/
-end
-always @(posedge CLK)
-if (RST) begin
-Info_A <= 0;
-Info_B <= 0;
 
-end else begin
-if (Write_En == 1'b1)begin 
-REGISTROS [Add_Dest] <= Write_Data;
-Info_A <= REGISTROS[Add_A];
-Info_B <= REGISTROS[Add_B];
 end
-else begin
-Info_A <= REGISTROS[Add_A];
-Info_B <= REGISTROS[Add_B];
+
+always @(*) begin
+    Info_A <= REGISTROS[Add_A];
+    Info_B <= REGISTROS[Add_B];  
 end
+
+always @(posedge CLK)begin
+    if (RST) begin
+        Info_A <= 0;
+        Info_B <= 0;
+        end
+    if (Write_En == 1'b1)begin 
+        REGISTROS[Add_Dest] = Write_Data;
+    end
 end
+
+
 endmodule

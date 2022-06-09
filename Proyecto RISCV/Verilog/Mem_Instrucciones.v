@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 06/06/2022 10:21:14 PM
+// Create Date: 06/08/2022 06:08:16 PM
 // Design Name: 
 // Module Name: Mem_Instrucciones
 // Project Name: 
@@ -22,26 +22,14 @@
 
 module Mem_Instrucciones(Dir, Inst);
 input [31:0] Dir; 
-reg [31:0] Add; 
-output[31:0] Inst; 
+output reg [31:0] Inst; 
 reg[31:0] mem[127:0]; 
-reg[31:0] INST; 
 
 initial begin
     $readmemh("code1.txt",mem); 
 end
 
-initial begin
-    for (Add=0; Add<39; Add=Add+1) begin
-    assign INST = mem[Add];
-    $display("%b",INST); 
+ always @(*) begin
+Inst <= mem[(Dir/4)];
 end
-
-#10
-$finish; 
-end
-
-assign Inst = mem[Dir];
-
 endmodule
-

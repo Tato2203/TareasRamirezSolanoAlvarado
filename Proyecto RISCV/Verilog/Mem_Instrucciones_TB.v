@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 06/06/2022 10:32:37 PM
+// Create Date: 06/08/2022 06:21:20 PM
 // Design Name: 
 // Module Name: Mem_Instrucciones_TB
 // Project Name: 
@@ -22,18 +22,42 @@
 
 module Mem_Instrucciones_TB();
 reg[31:0]  Add;        // Input Address 
-wire[31:0]  Inst;    // Instruction at memory location Address
-reg [31:0] mem[0:1024];
-integer i; 
- /* Please fill in the implementation here */
-	initial begin
-		$readmemh("code1.txt",mem);
-	for (i=0; i<40; i=i+4) begin 
-	$display("%b", mem[i]); 
-	end
-	
-	end
-			assign Inst = mem[Add>>2];	
+wire[31:0]  Insto;    // Instruction at memory location Address
+Mem_Instrucciones uut(
+.Dir(Add), 
+.Inst(Insto)
+); 
 
+initial begin
+Add=0; 
+#10
+Add=1; 
+#10
+Add=2; 
+#10
+Add=3; 
+#10
+Add=4; 
+#10
+Add=5; 
+#10
+Add=6; 
+#10
+Add=7; 
+#10
+Add=8; 
+#10
+Add=9; 
+#10
+Add=10; 
+#10
+Add=11; 
+#10
+Add=12; 
+#10
+Add=13; 
+#10
+Add=14; 
+
+end
 endmodule
-

@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 06/06/2022 09:41:07 PM
+// Create Date: 06/08/2022 06:15:17 PM
 // Design Name: 
 // Module Name: Unidad_Control
 // Project Name: 
