@@ -62,7 +62,7 @@ end
 
 initial begin 
 #800
-for (k=0; k<70000; k=k+1) begin
+for (k=0; k<65635; k=k+1) begin
 $fdisplay(file_id,"%h", k, MEMORIA[k]); 
 end
 end
