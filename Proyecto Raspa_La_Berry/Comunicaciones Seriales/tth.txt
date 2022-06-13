@@ -1,0 +1,3 @@
+Raspberry OS
+RS-232
+PIC 16F877A
