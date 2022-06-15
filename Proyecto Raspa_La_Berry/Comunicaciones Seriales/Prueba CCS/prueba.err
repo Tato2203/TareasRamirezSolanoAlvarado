@@ -1,3 +1,0 @@
-Compiling C:\Users\kevin\Desktop\Prueba CCS\prueba on 14-Jun-22 at 01:19
->>> Warning 203 "prueba.c" Line 22(1,1): Condition always TRUE
-*** Error 116 "prueba.c" Line 28(65,71): Printf variable count (%) does not match actual count  ::
