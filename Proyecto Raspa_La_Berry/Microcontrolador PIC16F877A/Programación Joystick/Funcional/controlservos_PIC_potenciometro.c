@@ -53,12 +53,12 @@ unsigned int ADC_Read(unsigned char channel)
 }
   //*************************************************//
 
-void __interrupt() timer_isr(void)
+/*void __interrupt() timer_isr(void)
 {  
     if(TMR0IF==1) // Timer has overflown
     {
         TMR0 = 252;     /*Load the timer Value, (Note: Timervalue is 101 instaed of 100 as the
-                          TImer0 needs two instruction Cycles to start incrementing TMR0 */
+                          TImer0 needs two instruction Cycles to start incrementing TMR0 
         TMR0IF=0;       // Clear timer interrupt flag
         count1++;
         count2++;
@@ -88,7 +88,7 @@ void __interrupt() timer_isr(void)
         count2=0;
     }
 }
-
+*/
 void main()
 {    
  /***************I/O PORT Initialization*************/
