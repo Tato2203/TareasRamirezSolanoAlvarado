@@ -1,8 +1,3 @@
-# Errores
-# Línea 13: E128 continuation line under-indented for visual indent
-# Línea 22: W291 trailing whitespace
-# Línea 23: E115 expected an indented block (comment)
-
 class metodos:
     def __init__(self):
         self.resultado = 0
@@ -10,7 +5,7 @@ class metodos:
 
     # Método basic_operations
     def basic_operations(self,
-     Op1, Op2, Op):
+                         Op1, Op2, Op):
 
         # comprobación tipo de entrada de los operandos
 
@@ -19,8 +14,8 @@ class metodos:
         tipo3 = isinstance(Op, int)
 
         if (tipo1 and tipo2 and tipo3):
-            if (Op == 1):  
-            # Operación 1 suma
+            if (Op == 1):
+                # Operación 1 suma
                 self.resultado = Op1 + Op2
             elif (Op == 2):  # Operación 2 resta
                 self.resultado = Op1 - Op2
