@@ -1,3 +1,7 @@
+# Línea 5: F401 'pytest' imported but unused
+# Línea 7: F401 'string' imported but unused
+# Línea 12: E501 line too long (101 > 79 characters)
+
 import pytest
 from Metodos import metodos
 import string
