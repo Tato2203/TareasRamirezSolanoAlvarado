@@ -17,7 +17,7 @@ class metodos:
                 self.resultado = Op1 - Op2
             else: #Operación 3 división
                 if (Op2==0): # Comprobación división por cero
-                    return 88
+                    return 88 #el error es mejor utilizar un estándar o código de error y no sólo un valor 
                 else:
                     self.resultado = Op1/Op2
             return self.resultado
